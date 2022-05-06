@@ -2,530 +2,569 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Self Learners-Group study</title>
-
-    <!-- google fonts cdn link  -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Self-Learners</title>
+    <link rel="icon" type="image/x-icon" href="https://safety.admin.ox.ac.uk/sites/default/files/safety/images/media/user-graduate-icon.png">
 
     <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript">
+        let menu = document.querySelector('#menu-btn');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = () =>{
+    menu.classList.toggle('fa-times');
+    navbar.classList.toggle('active');
+}
+
+window.onscroll = () =>{
+    menu.classList.remove('fa-times');
+    navbar.classList.remove('active');
+}
+
+// animated background 
+
+function createBox() {
+
+    let span = document.createElement('span');
+
+    span.classList.add('animated-box');
+
+    let size = Math.random() * 80;
+
+    span.style.height = 40 + size + 'px';
+    span.style.width = 40 + size + 'px';
+
+    span.style.top = Math.random() * innerHeight + 'px';
+    span.style.left = Math.random() * innerWidth + 'px';
+
+    document.querySelector('.gradient-background').appendChild(span);
+
+    setTimeout(() =>{
+        span.remove();
+    },3000)
+
+}
+
+setInterval(createBox, 400);
+    </script>
+
+</head>
+
+<body>
     <style type="text/css">
-        :root{
-    --gradient:linear-gradient(90deg, #55d0ff,  #7ce8ff);
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root{
+    --black:#130f40;
+    --white:#fff;
+    --gradient:linear-gradient(#02aab0 , #00cdac);
+    --background:rgba(255,255,255,.1);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border:.1rem solid rgba(255,255,255,.1);
+    --border-top:.1rem solid rgba(255,255,255,.3);
+    --border-left:.1rem solid rgba(255,255,255,.3);
 }
 
 *{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin:0; padding:0;
     box-sizing: border-box;
-    border:none; outline: none;
+    outline: none; border:none;
     text-decoration: none;
     text-transform: capitalize;
-    transition: all .2s linear;
-}
-
-*::selection{
-    background:90deg, #55d0ff,  #7ce8ff;
-    color:90deg, #55d0ff,  #7ce8ff;
 }
 
 html{
     font-size: 62.5%;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 10rem;
 }
 
 html::-webkit-scrollbar{
-    width:1.5rem;
+    width:1rem;
 }
 
 html::-webkit-scrollbar-track{
-    background:#333;
+    background:var(--gradient);
 }
 
 html::-webkit-scrollbar-thumb{
-    background:linear-gradient( #55d0ff,  #7ce8ff);
+    background:var(--white);
+    border-radius: 5rem;
 }
 
 section{
-    min-height: 100vh;
-    padding:1rem 7%;
-    padding-top:6rem;
-}
-
-.btn{
-    padding:.7rem 3rem;
-    font-size: 2rem;
-    color:#fff;
-    background:var(--gradient);
-    border-radius: 5rem;
-    margin-top: 1rem;
-    cursor: pointer;
-    box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);
-    position: relative;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.btn::before{
-    content: '';
-    position: absolute;
-    top:-1rem; left:-100%;
-    background:#fff9;
-    height:150%;
-    width:20%;
-    transform: rotate(25deg);
-    z-index: -1;
-}
-
-.btn:hover::before{
-    transition: .3s linear;
-    left: 120%;
+    padding:2rem 9%;
 }
 
 .heading{
-    color:#444;
-    padding:1rem;
-    font-size: 4rem;
     text-align: center;
+    padding-bottom: 2.5rem;
 }
 
-header{
+.heading span{
+    background:var(--background);
+    border-radius: .5rem;
+    border:var(--border);
+    border-top:var(--border-top);
+    border-left:var(--border-left);
+    font-size: 4rem;
+    color:var(--white);
+    padding:.5rem 1.5rem;
+    text-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    box-shadow: var(--box-shadow);
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    transition: .2s linear;
+    background:var(--white);
+    color:var(--black);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    padding:.8rem 3rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.btn:hover{
+    letter-spacing: .1rem;
+}
+
+.gradient-background{
+    height: 100%;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    background: var(--gradient);
     position: fixed;
     top:0; left: 0;
-    z-index: 1000;
-    padding:1.5rem 7%;
-    background:var(--gradient);
-    box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);
+    z-index: -1;
+    overflow:hidden;
 }
 
-header .logo{
-    color:#fff;
-    font-size: 2.5rem;
-}
-
-header .navbar ul{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-}
-
-header .navbar ul li{
-    margin:0 1rem;
-}
-
-header .navbar ul li a{
-    font-size: 2rem;
-    color:#fff;
-}
-
-header .navbar ul li a.active,
-header .navbar ul li a:hover{
-    color:#444;
-}
-
-header #login{
-    font-size: 3rem;
-    color:#fff;
-    cursor: pointer;
-}
-
-header #login:hover{
-    color:#444;
-}
-
-header #menu{
-    font-size: 3rem;
-    color:#fff;
-    cursor: pointer;
-    display: none;
-}
-
-.login-form{
-    height:100%;
-    width:100%;
-    position: fixed;
-    top:-120%; left: 0;
-    z-index: 1000;
-    background:rgba(0,0,0,.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.login-form.popup{
-    top:0;
-}
-
-.login-form form{
-    width:35rem;
-    background:#fff;
-    margin:0 2rem;
-    padding:1rem 3rem;
+.gradient-background .animated-box{
+    position: absolute;
+    background:rgba(255,255,255,.2);
+    display: block;
+    pointer-events: none;
     border-radius: .5rem;
-    box-shadow: 0 .1rem .3rem #333;
-    position: relative;
-}
-
-.login-form form h3{
-    font-size: 3rem;
-    color:#f39c12;
-    padding:1rem 0;
-}
-
-.login-form form .box{
-    width:100%;
-    padding:1rem 0;
-    margin:1rem 0;
-    border-bottom: .2rem solid #666;
-    font-size: 1.6rem;
-    color:#333;
-    text-transform: none;
-}
-
-.login-form form .box::placeholder{
-    text-transform: capitalize;
-}
-
-.login-form form .box:focus{
-    border-color: #f39c12;
-}
-
-.login-form form .box:nth-child(3){
-    margin-bottom: 5rem;
-}
-
-.login-form form p{
-    font-size: 1.4rem;
-    color:#666;
-    padding:.5rem 0;
-}
-
-.login-form form p a{
-    color:#f39c12;
-}
-
-.login-form form .btn{
-    width: 100%;
-    margin:2rem 0;
-}
-
-.login-form form .btn:hover{
-    background:#444;
-}
-
-.login-form form .fa-times{
-    position: absolute;
-    top:1.5rem; right:2rem;
-    font-size: 2.5rem;
-    cursor: pointer;
-    color:#999;
-}
-
-.login-form form .fa-times:hover{
-    color:#444;
-}
-
-.home{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-flow: column;
-    background-image: url(https://lh6.googleusercontent.com/9rq4YVPJOyoU8hhJ0TJ0TlzqyzJ2dpBzA1TqtJO2QJtlAJp71alglRbmvjkgpAhtWjk-5wFJMIuF_JiTU_AB=w1920-h901-rw);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    position: relative;
-    text-align: center;
-}
-
-.home h1{
-    font-size: 6rem;
-    color:#666;
-}
-
-.home p{
-    font-size: 1.9rem;
-    color:#999;
-    padding:1rem 0;
-    width:70rem;
-}
-
-.home .shape{
-    position: absolute;
-    bottom:-.2rem; left: 0;
-    height:15rem;
-    width:100%;
-    background:url(../images/shape.png);
-    block-size: 100rem 15rem;
-    filter: drop-shadow(0 -.1rem .1rem rgba(0,0,0,.2));
-    animation: animate 10s linear infinite;
+    animation: animate 3s linear infinite;
 }
 
 @keyframes animate{
-
     0%{
-        background-position-x: 0rem;
+        opacity: 0;
+        transform:scale(0) translateY(-200%) rotate(0deg);
     }
-
+    10%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
     100%{
-        background-position-x: 100rem;
+        opacity: 0;
+        transform:scale(1) translateY(-500%) rotate(360deg);
     }
-
 }
 
-.about{
+.header{
+    position: fixed;
+    top:1.5rem; left:50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 95%;
+    background: var(--background);
+    border:var(--border);
+    border-top:var(--border-top);
+    border-left:var(--border-left);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--box-shadow);
+    padding:2rem;
+    border-radius: .5rem;
+    backdrop-filter: blur(.4rem);
+}
+
+.header .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color:var(--white);
+    text-transform: uppercase;
+}
+
+.header .logo i{
+    color:var(--black);
+}
+
+.header .navbar a{
+    font-size: 1.7rem;
+    margin-left: 2rem;
+    color:var(--white);
+}
+
+.header .navbar a:hover{
+    color:var(--black);
+}
+
+#menu-btn{
+    font-size: 3rem;
+    cursor: pointer;
+    color:var(--white);
+    display: none;
+}
+
+.home{
+    height: 100vh;
+    padding:7rem 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
 }
 
-.about .image{
-    flex:1 1 40rem;
+.home .content{
+    width: 75rem;
+    text-align: center;
 }
 
-.about .image img{
-    height:65vh;
-    width:100%;
+.home .content h3{
+    color: var(--white);
+    text-transform: uppercase;
+    font-size: 4rem;
+    line-height: 1.8;
+    text-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
 }
 
-.about .content{
-    flex:1 1 40rem;
-}
-
-.about .content h3{
-    font-size: 3.5rem;
-    color:#666;
-}
-
-.about .content p{
-    font-size: 1.5rem;
-    color:#666;
+.home .content p{
+    font-weight: 300;
+    color: var(--white);
+    font-size: 2rem;
+    line-height: 1.8;
     padding:1rem 0;
 }
 
-.course .box-container{
+.courses .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+}
+
+.courses .box-container .box{
+    text-align: center;
+    background:var(--background);
+    border-radius: .5rem;
+    border:var(--border);
+    border-top:var(--border-top);
+    border-left:var(--border-left);
+    box-shadow: var(--box-shadow);
+    padding:2rem;
+    backdrop-filter: blur(.4rem);
+}
+
+.courses .box-container .box img{
+    height: 20rem;
+}
+
+.courses .box-container .box h3{
+    font-size: 2rem;
+    color:var(--white);
+}
+
+.courses .box-container .box p{
+    font-size: 1.5rem;
+    color:var(--white);
+    line-height: 1.8;
+    padding:1rem 0;
+}
+
+.courses .box-container .box .icons{
+    border-top: var(--border-top);
+    margin-top: 2rem;
+    padding-top: 1.5rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.course .box-container .box{
-    width:35rem;
-    border:.1rem solid rgba(0,0,0,.3);
-    position: relative;
-    margin:1.5rem;  
+.courses .box-container .box .icons a{
+    font-size: 1.6rem;
+    color:var(--white);
 }
 
-.course .box-container .box img{
-    height:20rem;
-    width: 100%;
+.courses .box-container .box .icons a:hover{
+    color:var(--black);
+}
+
+.courses .box-container .box .icons a i{
+    padding-right: .5rem;
+}
+
+.teachers .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+}
+
+.teachers .box-container .box{
+    text-align: center;
+    background:var(--background);
+    border-radius: .5rem;
+    border:var(--border);
+    border-top:var(--border-top);
+    border-left:var(--border-left);
+    box-shadow: var(--box-shadow);
+    padding:2rem;
+    backdrop-filter: blur(.4rem);
+}
+
+.teachers .box-container .box img{
+    height:15rem;
+    width:15rem;
+    border-radius: 50%;
     object-fit: cover;
 }
 
-.course .box-container .box .content{
-    padding:1rem;
+.teachers .box-container .box h3{
+    font-size: 2.2rem;
+    color:var(--white);
+    padding:.5rem 0;
 }
 
-.course .box-container .box .content .stars i{
-    color:#f39c12;
-    font-size: 1.7rem;
-    padding:1rem .1rem;
+.teachers .box-container .box span{
+    font-size: 1.6rem;
+    color:var(--white);
 }
 
-.course .box-container .box .content .title{
-    color:#444;
-    font-size: 2.1rem;
+.teachers .box-container .box .share{
+    padding-top: 1rem;
 }
 
-.course .box-container .box .content .title:hover{
-    text-decoration: underline;
-}
-
-.course .box-container .box .content p{
-    padding:1rem 0;
-    color:#666;
-    font-size: 1.5rem;
-}
-
-.course .box-container .box .content .info{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: .5rem;
-    border-top: .1rem solid rgba(0,0,0,.3);
-}
-
-.course .box-container .box .content .info h3{
-    font-size: 1.5rem;
-    padding:1rem;
-    color:#666;
-}
-
-.course .box-container .box .content .info h3 i{
-    color:#f39c12;
-}
-
-.course .box-container .box .price{
-    position: absolute;
-    top:16rem; right:1rem;
-    height:8rem;
-    width:8rem;
-    line-height: 8rem;
-    text-align: center;
-    border-radius: 50%;
-    background:var(--gradient);
-    color:#fff;
-    font-size: 3rem;
-}
-
-.teacher{
-    text-align: center;
-    background:url(../images/teachers.jfif) no-repeat;
-    background-size: cover;
-    background-position: bottom;
-}
-
-.teacher p{
-    font-size: 1.8rem;
-    color:#666;
-    width:65rem;
-    margin:1rem auto;
-}
-
-.contact{
-    background:#111;
-}
-
-.contact .heading{
-    color:#fff;
-}
-
-.contact .row{
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.contact .row form{
-    flex:1 1 50rem;
-    background:#222;
-    padding:2rem;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 3rem;
-    align-items: flex-start;
-}
-
-.contact .row form .box{
+.teachers .box-container .box .share a{
     height:5rem;
-    width:49%;
-    border:.1rem solid #eee;
-    padding:0 1rem;
+    width:5rem;
+    line-height:5rem;
+    font-size: 2rem;
+    background:var(--background);
+    box-shadow: var(--box-shadow);
+    color:var(--white);
+    border-radius: .5rem;
+    margin:.5rem;
+}
+
+.teachers .box-container .box .share a:hover{
+    background:var(--black);
+}
+
+.plan .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+}
+
+.plan .box-container .box{
+    text-align: center;
+    background:var(--background);
+    border-radius: .5rem;
+    border:var(--border);
+    border-top:var(--border-top);
+    border-left:var(--border-left);
+    box-shadow: var(--box-shadow);
+    padding:2rem 0;
+    backdrop-filter: blur(.4rem);
+}
+
+.plan .box-container .box i{
+    color:var(--white);
+    font-size: 7rem;
+    padding:1rem 0;
+}
+
+.plan .box-container .box .fa-plane{
+    transform:rotate(-45deg);
+}
+
+.plan .box-container .box h3{
+    background:rgba(255,255,255,.4);
+    font-size: 2rem;
+    padding:1rem 0;
     margin:1rem 0;
+    margin-top: 2rem;
+    color:var(--black);
+}
+
+.plan .box-container .box ul{
+    padding:1rem 0;
+    list-style: none;
+}
+
+.plan .box-container .box ul li{
+    padding:1rem 0;
+    color:var(--white);
+    font-size: 1.6rem;
+}
+
+.plan .box-container .box a{
+    display: block;
+    background:rgba(255,255,255,.4);
+    font-size: 2rem;
+    padding:1rem 0;
+    margin:1rem 0;
+    margin-top: 2rem;
+    color:var(--black);
+    transition:.2s linear;
+}
+
+.plan .box-container .box a:hover{
+    letter-spacing: .1rem;
+}
+
+.plan .box-container .box .price{
+    font-size: 6rem;
+    padding-top: 1rem;
+    font-weight: bolder;
+    color:var(--white);
+}
+
+.plan .box-container .box .price span{
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+.review .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+}
+
+.review .box-container .box{
+    text-align: center;
+    background:var(--background);
+    border-radius: .5rem;
+    border:var(--border);
+    border-top:var(--border-top);
+    border-left:var(--border-left);
+    box-shadow: var(--box-shadow);
+    padding:2rem;
+    backdrop-filter: blur(.4rem);
+}
+
+.review .box-container .box .image{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.review .box-container .box .image i{
+    font-size: 5rem;
+    color:rgba(255,255,255,.4);
+}
+
+.review .box-container .box .image img{
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review .box-container .box h3{
+    padding-top:.5rem;
+    font-size: 2.2rem;
+    color:var(--white);
+}
+
+.review .box-container .box span{
+    font-size: 1.4rem;
+    color:var(--black);
+}
+
+.review .box-container .box p{
+    font-size: 1.5rem;
+    color:var(--white);
+    padding:1rem 0;
+    line-height: 1.8;
+}
+
+.review .box-container .box .stars{
+    padding-top: .5rem;
+}
+
+.review .box-container .box .stars i{
     font-size: 1.7rem;
-    color:#fff;
-    background:none;
+    color:var(--black);
+}
+
+.contact form{
+    max-width:60rem;
+    margin:1rem auto;
+    text-align: center;
+    background:var(--background);
+    border-radius: .5rem;
+    border:var(--border);
+    border-top:var(--border-top);
+    border-left:var(--border-left);
+    box-shadow: var(--box-shadow);
+    padding:2rem;
+    backdrop-filter: blur(.4rem);
+}
+
+.contact form .box{
+    width: 100%;
+    background:var(--background);
+    border-radius: .5rem;
+    margin:.7rem 0;
+    box-shadow: var(--box-shadow);
+    padding:1rem 1.2rem;
+    font-size: 1.5rem;
+    color:var(--white);
     text-transform: none;
+    font-weight: 300;
 }
 
-.contact .row form .box:focus{
-    border-color: #f39c12;
-}
-
-.contact .row form .box::placeholder{
+.contact form .box::placeholder{
+    color:#eee;
     text-transform: capitalize;
 }
 
-.contact .row form .address{
-    height:15rem;
-    padding:1rem;
+.contact form textarea{
+    height: 15rem;
     resize: none;
-    width:100%;
-}
-
-.contact .row form .btn:hover{
-    background:#fff;
-    color:#333;
-}
-
-.contact .row .image img{
-    height: 80vh;
-    margin-top: 2rem;
 }
 
 .footer{
-    background:#333;
-}
-
-.footer .box-container{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.footer .box-container .box{
-    margin:1.5rem;
     text-align: center;
-    flex:1 1 25rem;
 }
 
-.footer .box-container .box h3{
-    font-size: 2.5rem;
-    color:#fff;
+.footer .share{
     padding:1rem 0;
 }
 
-.footer .box-container .box p{
-    font-size: 1.7rem;
-    color:#eee;
-    padding:.7rem 0;
+.footer .share a{
+    margin:0 1rem;
+    font-size: 4rem;
+    color:var(--white);
 }
 
-.footer .box-container .box p i{
-    padding-right: .5rem;
-    color:#f39c12;
-}
-
-.footer .box-container .box a{
-    font-size: 1.8rem;
-    display: block;
-    padding:.5rem 0;
-    color:#eee;
-}
-
-.footer .box-container .box a:hover{
-    text-decoration: underline;
+.footer .share a:hover{
+    color:var(--black);
 }
 
 .footer .credit{
-    padding:2rem 1rem;
+    padding:1.5rem 0;
+    margin:1rem 0;
     font-size: 2rem;
-    color:#fff;
-    background:#111;
-    text-align: center;
-    font-weight: normal;
-    padding-bottom: 9rem;
+    color:var(--white);
 }
 
-.footer .credit a{
-    color:#f39c12
+.footer .credit span{
+    color:var(--black);
 }
-
-
-
 
 
 
@@ -540,239 +579,150 @@ header #menu{
 
 /* media queries  */
 
-@media (max-width:768px){
+@media (max-width:991px){
 
     html{
         font-size: 55%;
     }
 
-    header #menu{
-        display: block;
-    }
-
-    header .navbar{
-        position: fixed;
-        top:-120%; left:0;
-        width:100%;
-        background:#444;
-    }
-
-    header .navbar ul{
-        flex-flow: column;
-        padding:2rem 0;
-    }
-
-    header .navbar ul li{
-        margin:1.5rem 0;
-        text-align: center;
-        width:100%;
-    }
-
-    header .navbar ul li a{
-        font-size: 2.5rem;
-        display: block;
-    }
-
-    header .navbar ul li a.active,
-    header .navbar ul li a:hover{
-        color:#f39c12;
-    }
-
-    .fa-times{
-        transform: rotate(180deg);
-    }
-
-    header .navbar.nav-toggle{
-        top:6.4rem;
-    }
-
-    .home h1{
-        font-size: 4rem;
-    }
-
-    .home p{
-        width: auto;
-    }
-
-    .teacher p{
-        width:auto;
-    }
-
-    .contact .row .image{
-        display: none;
+    section{
+        padding:2rem;
     }
 
 }
 
-@media (max-width:500px){
+@media (max-width:768px){
+
+    #menu-btn{
+        display: initial;
+        transition: .2s linear;
+    }
+
+    #menu-btn.fa-times{
+        transform: rotate(180deg);
+    }
+
+    .header .navbar{
+        position: absolute;
+        top:115%; left:0; right:0;
+        background:var(--gradient);
+        border-radius: .5rem;
+        transition: .3s linear;
+        box-shadow: var(--box-shadow);
+        padding:.5rem 1.5rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .header .navbar a{
+        font-size: 2rem;
+        display: block;
+        background:var(--background);
+        border-radius: .5rem;
+        margin:1.2rem 0;
+        padding:1.5rem;
+        border:var(--border);
+        border-top:var(--border-top);
+        border-left:var(--border-left);
+        box-shadow: var(--box-shadow);
+    }
+
+    .home .content h3{
+        font-size: 3.5rem;
+    }
+
+    .home .content p{
+        font-size: 1.6rem;
+    }
+
+}
+
+@media (max-width:450px){
 
     html{
         font-size: 50%;
     }
 
-    .contact .row form .box{
-        width:100%;
+    .heading span{
+        font-size: 3rem;
     }
 
 }
-.responsive {
-  width: 100%;
+.img{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+    width: 100%;
+  max-width: 400px;
   height: auto;
 }
-    </style>
 
-</head>
-<body>
-   <script type="text/javascript">
-       $(document).ready(function(){
+</style>
+    
+<!-- gradeint background  -->
 
-    $('#menu').click(function(){
-        $(this).toggleClass('fa-times');
-        $('.navbar').toggleClass('nav-toggle');
-    });
+<div class="gradient-background"></div> 
 
-    $('#login').click(function(){
-        $('.login-form').addClass('popup');
-    });
-
-    $('.login-form form .fa-times').click(function(){
-        $('.login-form').removeClass('popup');
-    });
-
-    $(window).on('load scroll',function(){
-
-        $('#menu').removeClass('fa-times');
-        $('.navbar').removeClass('nav-toggle');
-
-        $('.login-form').removeClass('popup');
-
-        $('section').each(function(){
-
-            let top = $(window).scrollTop();
-            let height = $(this).height();
-            let id = $(this).attr('id');
-            let offset = $(this).offset().top - 200;
-
-            if(top > offset && top < offset + height){
-                $('.navbar ul li a').removeClass('active');
-                $('.navbar').find(`[href="#${id}"]`).addClass('active');
-            }
-
-
-        });
-
-    });
-
-}); 
-   </script>
 <!-- header section starts  -->
 
-<header>
+<header  style="align-content: center;" class="header">
 
-    <a  class="logo"></i>Self Learners</a>
-
-
-    <div id="login" class="fas fa-user-circle"></div>
+    <a href="#" class="logo"> <i class="fas fa-user-graduate"></i></i> Self-Learners </a>
 
 </header>
 
 <!-- header section ends -->
 
-<!-- login form  -->
-
-
 <!-- home section starts  -->
 
-
 <section class="home" id="home">
-    <img src="https://bap.deg.mybluehost.me/wp-content/uploads/2019/02/5-2.png" alt="Nature" class="responsive" width="300" height="100">
-    <h1>Self learners</h1>
-    <p>Welcome to Self Learners. We are a passionate to excel in wisdom and knowledge, we are group of good students who have zeal to achieve our Life's goals.</p>
-    <p>Instead of having a concept explained to you, you can use instructions, context clues, and examples to figure out the answer on your own. When you develop the ability to self-learn, you can study any subject confidently.</p>
 
-    <img src="https://www.jpinternational.co.in/wp-content/uploads/2019/11/6a69a-media_httpclassroomai_ggfir.jpg" alt="Nature" class="responsive" width="300" height="100">
-
-
-
-    <div class="shape">
-        
+    <div class="content">
+        <h3>Discover a new way of learning</h3>
+        <p>Welcome to Self Learners. We are a passionate to excel in wisdom and knowledge, we are group of good students who have zeal to achieve our Life's goals.</p>
+        <p>Instead of having a concept explained to you, you can use instructions, context clues, and examples to figure out the answer on your own. When you develop the ability to self-learn, you can study any subject confidently.</p>
     </div>
 
 </section>
+<img class="img" src="https://www.uni-prep.com/online-education/assest/intro/intro_image01.png">
+<section class="home" id="home">
 
-<!-- home section ends -->
-
-<!-- course section starts  -->
-
-<section class="course" id="course">
-
-<div class="home">
-    <div class="box-container">
-            <h1 class="heading">how to join?</h1>  
+    <div class="content">
+        <h3>Recorded Lessons</h3>
+        <img class="img" src="https://kahoot.com/files/2020/03/DistanceLearning-EasierAccess.png">
+        <p>Want recorded lessons for NCERT which will help you in exams? click below</p>
+        <a class="btn" href="https://gokul2009.github.io/Vedu/">Self-learners NCERT</a>
     </div>
-    <p>It is very simple join the class room below and meeting link would be sent on the sheduled time in the classroom (EVERY SUNDAY 3PM-4PM)</p>
-</div>
-<div class="box-container">
-        <a class="btn" href="https://classroom.google.com/c/NDg1NTU0NTMzMjM4?cjc=f7aph4p">Join Now in Self learners</a>
-        <div class="box-container">
-        <p class="heading">              </p>
-        <p class="heading">              </p>
-    </div>
-        </div>
 
-        <img src="https://www.brightermonday.co.ke/discover/wp-content/uploads/2017/09/be-your-own-teacher.png" alt="Nature" class="responsive" width="300" height="100">
-        <div class="box-container">
-            <h1 class="heading">Recorded lessons</h1>  
-    </div>
-    <p class="heading">Want recorded lessons? click below</p>
-</div>
-<div class="box-container">
-        <a class="btn" href="https://gokul2009.github.io/Vedu/">Vedu NCERT</a>
-        </div>
 </section>
+</section>
+<img class="img" src="https://pmgbiology.files.wordpress.com/2015/05/testyourself-logo.png">
+<section class="home" id="home">
 
-<section class="home">
-    <div class="box-container">
-            <h1 class="heading">NCERT BOOKS</h1>  
-    </div>
-<a class="btn" href="https://ncertguru.org/ncert-books/class-12/">NCERT Books for Class 12</a>
-<a class="btn" href="https://ncertguru.org/ncert-books/class-11/">NCERT Books for Class 11</a>
-<a class="btn" href="https://ncertguru.org/ncert-books/class-10/">NCERT Books for Class 10</a>
-<a class="btn" href="https://ncertguru.org/ncert-books/class-9/">NCERT Books for Class 9</a>
-<a class="btn" href="https://ncertguru.org/ncert-books/class-8/">NCERT Books for Class 8</a>
-<a class="btn" href="https://ncertguru.org/ncert-books/class-7/">NCERT Books for Class 7</a>
-<a class="btn" href="https://ncertguru.org/ncert-books/class-6/">NCERT Books for Class 6</a>
-<a class="btn" href="https://ncertguru.org/ncert-books/class-5/">NCERT Books for Class 5</a>
-<a class="btn" href="https://ncertguru.org/ncert-books/class-4/">NCERT Books for Class 4</a>
-<a class="btn" href="https://ncertguru.org/ncert-books/class-3/">NCERT Books for Class 3</a>
-<a class="btn" href="https://ncertguru.org/ncert-books/class-2/">NCERT Books for Class 2</a>
-<a class="btn" href="https://ncertguru.org/ncert-books/class-1/">NCERT Books for Class 1</a>
-
-    <div class="box-container">
-    
-            <h2 class="heading">QUIZZES FOR SPECIFIC GRADES</h2>  
-    </div>
-    <a class="btn" href="https://quizizz.com/join/search/class%206%20and%207?languages=English">class 6 and 7</a>
+    <div class="content">
+        <h3>Quizzes</h3>
+        <img class="img" src="https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_cc23c306f0259fa0a699453822c23fae/quizizz.png">
+        <p>Want a website for quizzes (website name:quizizz)? click below</p>
+        <p>This website provides quizzes for spefic grades</p>
+        <a class="btn" href="https://quizizz.com/join/search/class%206%20and%207?languages=English">class 6 and 7</a>
     <a class="btn" href="https://quizizz.com/join/search/class%208%20and%209?languages=English">class 8 and 9</a>
     <a class="btn" href="https://quizizz.com/join/search/class%2010%20and%2011?languages=English">class 10 and 11</a>
     <a class="btn" href="https://quizizz.com/join/search/class%2012%20?languages=English">class 12</a>
+    </div>
 
+</section>
+</section>
+<img class="img" src="https://www.vmaker.com/assets/img/yt-resource-banner.png">
+<section class="home" id="home">
 
- <div class="home">
-            <h1 class="heading">SELF LEARNING TIPS</h1>  
-            <h2><li>Study Different Subjects.</li></h2>
-            <h2><li>Today, information is available everywhere.</li></h2>
-            <h2><li>Make Notes Every Day.</li></h2>
-            <h2><li>Test Yourself Regularly.</li></h2>
-            <h2><li>Watch Video Tutorials.</li></h2>
-            <h2><li>Study with Educational Games.</li></h2>
-            <h2><li>Read Out Loud.Reading out any text loud is the best way to remember that text</li></h2>
-            <h2><li>Take Short Breaks Regularly </li></h2>
-    </div> 
-    <div class="home">
-            <h2 class="heading">LOOKING FOR EDUCATIONAL CHANNELS ON YOUTUBE?</h2> 
-            <p>HERE ARE TOP EDUCATIONAL CHANNELS ↓</p> 
-            <a class="btn" href="https://www.youtube.com/teded">TedEd</a>
+    <div class="content">
+        <h3>LOOKING FOR EDUCATIONAL CHANNELS ON YOUTUBE?</h3>
+        <img class="img" src="https://www.oliverwyman.com/content/dam/oliver-wyman/v2/tmp/education-mobile.gif">
+        <p>HERE ARE TOP EDUCATIONAL CHANNELS ↓</p>
+        <a class="btn" href="https://www.youtube.com/teded">TedEd</a>
             <a class="btn" href="https://www.youtube.com/c/vsauce1/featured">Vsauce</a>
             <a class="btn" href="https://www.youtube.com/user/scishow">SciShow</a>
             <a class="btn" href="https://www.youtube.com/user/minuteearth">MinuteEarth</a>
@@ -781,32 +731,42 @@ header #menu{
             <a class="btn" href="https://www.youtube.com/user/minutephysics">minutephysics</a>
             <a class="btn" href="https://www.youtube.com/user/Kurzgesagt">
 Kurzgesagt – In a Nutshell </a>
-            
     </div>
-</section>
-
-<section class="contact" id="contact">
-
-<h1 class="heading">contact us</h1>
-
-<div class="row">
-
-
-    
-<div class="home">
-    <a class="btn" href="https://forms.gle/1KMGNLuUpW85kGZQA">CONTACT US</a>
-    <p class="heading" style="color: white;">Or contact us through<a href="mailto:selflearners50@gmail.com"> selflearners50@gmail.com</a></p>
-</div>
-
-
-</div>
 
 </section>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<section class="footer">
 
-<!-- custom js file link  -->
+    <h1>Follow us on</h1>
+
+    <div class="share">
+        <a href="https://www.facebook.com/SelfLearners1/" class="fab fa-facebook-f"></a>
+        <a href="https://twitter.com/TheValiant17" class="fab fa-twitter"></a>
+        <a href="https://www.instagram.com/selflearners1/" class="fab fa-instagram"></a>
+        <a href="https://www.linkedin.com/in/selflearners-undefined-60aa8a239/" class="fab fa-linkedin"></a>
+    </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- custom javascript file link  -->
 <script src="js/script.js"></script>
 
 </body>
